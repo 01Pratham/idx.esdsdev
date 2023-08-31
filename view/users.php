@@ -9,7 +9,7 @@ function Users($id, $master = '')
         $user_query = mysqli_query($con, "SELECT * FROM `login_master` WHERE `manager_code` = '{$id}'");
     }
     if ($id != "*") {
-        ?>
+?>
 
 
         <?php
@@ -21,7 +21,7 @@ function Users($id, $master = '')
                 continue;
             }
             $quer = mysqli_fetch_all(mysqli_query($con, "SELECT * FROM `login_master` WHERE `manager_code` = '{$users['employee_code']}'"));
-            ?>
+        ?>
 
             <tr class=" align-middle subUsers">
                 <td class="col-4">
@@ -41,24 +41,26 @@ function Users($id, $master = '')
                 <td class="col-4 text-center"> <span class="d-inline-block align-middle">
                         <?= $users['designation'] ?>
                     </span></td>
-                <td class="col-2 text-center" class="text-end">
-                <td class="except drodown">
-                    <a data-bs-toggle="dropdown" href="#" class="btn p-1" aria-expanded="false" onclick="preventdefault()">
-                        <i class="fa fa-bars" aria-hidden="true"></i>
-                    </a>
-                <td class="except dropdown-menu dropdown-menu-end" style>
-                    <?php
-                    if ($id == "*") {
-                        echo "<a href='index.php?share_id={$_GET['share_id']}&emp_id={$users['employee_code']}' class='dropdown-item'>Share</a>";
-                    } else {
-                        echo "<a href='index.php?all={$users['employee_code']}' class='dropdown-item'>View Estimates</a>";
-                    }
-                    ?>
+                <td class="text-center">
+                    <div class="except drodown">
+                        <a data-bs-toggle="dropdown" href="#" class="btn p-1" aria-expanded="false" onclick="preventdefault()">
+                            <i class="fa fa-bars" aria-hidden="true"></i>
+                        </a>
+                        <div class="except dropdown-menu dropdown-menu-end text-light" style="min-width: 8rem; z-index:1 ">
+                            <?php
+                            if ($id == "*") {
+                                echo "<a href='index.php?share_id={$_GET['share_id']}&emp_id={$users['employee_code']}' class='dropdown-item'>Share</a>";
+                            } else {
+                                echo "<a href='index.php?all={$users['employee_code']}' class='dropdown-item'>View Estimates</a>";
+                            }
+                            ?>
+                        </div>
+                    </div>
 
                 </td>
             </tr>
 
-            <?php
+        <?php
             // print_r(empty($quer));
             if (!empty($quer)) {
                 Users($users['employee_code'], $id);
@@ -68,7 +70,7 @@ function Users($id, $master = '')
         }
         ?>
 
-        <?php
+    <?php
     }
 }
 
@@ -87,7 +89,7 @@ function allUsers($type = "")
                     <div class="except table-responsive">
                         <table class="table mb-0 rounded-2">
                             <thead class="small text-uppercase bg-body text-muted">
-                                <tr class="row border-bottom">
+                                <tr class="border-bottom">
                                     <th class="col-4">Name</th>
                                     <th class="col-2 text-center">Employee Code</th>
                                     <th class="col-4 text-center">Designation</th>
@@ -124,6 +126,6 @@ function allUsers($type = "")
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
-    <?php
+<?php
 }
 ?>
