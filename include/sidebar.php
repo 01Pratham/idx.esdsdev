@@ -54,14 +54,6 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="index.php?rateCard" class="nav-link" id="rateCard">
-                        <i class="nav-icon fas fa-book-open"></i>
-                        <p class="except">
-                            Rate Card
-                        </p>
-                    </a>
-                </li>
             </ul>
         </nav>
     </div>
