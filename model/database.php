@@ -26,8 +26,8 @@ if(isset($_POST['buffer'])){
 $exe_query = mysqli_query( $con, 'SELECT * FROM `price_list`' );
 
 while ( $price_tbl = mysqli_fetch_assoc( $exe_query ) ) {
-    $price_query = mysqli_fetch_assoc(mysqli_query($con,"SELECT * FROM `rate_card_prices` WHERE `rate_card_id` = '{$_POST['price_list']}' AND `prod_id` = '{$price_tbl['id']}'" ));
-    $product_prices[ $price_tbl[ 'prod_int' ] ] = intval($price_query[ 'price' ]);
+    // $price_query = mysqli_fetch_assoc(mysqli_query($con,"SELECT * FROM `rate_card_prices` WHERE `rate_card_id` = '{$_POST['price_list']}' AND `prod_id` = '{$price_tbl['id']}'" ));
+    $product_prices[ $price_tbl[ 'prod_int' ] ] = intval($price_tbl[ 'price' ]);
     $prod_cat[ $price_tbl[ 'prod_int' ] ] = $price_tbl[ 'sec_category' ];
     $product_sku[ $price_tbl[ 'prod_int' ] ] = $price_tbl[ 'sku_code' ];
     $products[ $price_tbl[ 'prod_int' ] ] = $price_tbl[ 'product' ];

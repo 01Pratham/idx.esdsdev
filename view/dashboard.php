@@ -10,11 +10,11 @@
             <div class="except row">
                 <div class="except col-lg-3 col-6">
                     <!-- small box -->
-                    <div class="except small-box bg-info" onclick="location.href = 'index.php?rateCard'">
+                    <div class="except small-box bg-info" onclick="location.href = 'index.php'">
                         <div class="except inner">
                             <h3 class="text-info">.</h3>
 
-                            <p class="except">Rate Cards</p>
+                            <p class="except">Dashboard</p>
                         </div>
                         <div class="except icon">
                             <i class="fa fa-tachometer-alt"></i>
