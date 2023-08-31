@@ -35,13 +35,13 @@ function CreateNew()
                     <select class="form-control" name="price_list" id="pice_list"
                         style="border: none; border-bottom: 1px solid ; border-radius:0;">
                         <?php
-                        $list = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM `tbl_rate_cards` WHERE `id` ='{$Editable['price_list']}' "));
-                        echo "<option value='{$list["id"]}' class='editable' hidden>{$list["rate_card_name"]}</option>'";
+                        $list = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM `pricing_list_master` WHERE `pricing_list_id` ='{$Editable['price_list']}' "));
+                        echo "<option value='{$list["pricing_list_id"]}' class='editable' hidden>{$list["pricing_list_name"]}</option>'";
 
-                        $p_query = mysqli_query($con, "SELECT * FROM `tbl_rate_cards`");
+                        $p_query = mysqli_query($con, "SELECT * FROM `pricing_list_master`");
                         while ($pricing_list = mysqli_fetch_array($p_query)) {
                             ?>
-                            <option value="<?= $pricing_list["id"] ?>"><?= $pricing_list["rate_card_name"] ?>
+                            <option value="<?= $pricing_list["pricing_list_id"] ?>"><?= $pricing_list["pricing_list_name"] ?>
                             </option>
                         <?php } ?>
                     </select>
