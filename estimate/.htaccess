@@ -1,5 +1,0 @@
-RewriteEngine On
-
-RewriteCond %{QUERY_STRING} ^all$
-RewriteRule ^estimate/index.php$ /estimate/All [QSA,L]
-    
